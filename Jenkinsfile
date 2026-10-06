@@ -32,7 +32,7 @@ pipeline {
         stage('Docker') {
             steps {
                 echo 'Building Docker image'
-                sh 'docker build -t minhaaj1/devops-app:latest .'
+                sh 'docker build -t minhaaj1/devops-app:latest ./app'
             }
         }
     }
