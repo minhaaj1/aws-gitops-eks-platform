@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     stages {
-
         stage('Checkout') {
             steps {
                 echo 'Starting CI pipeline'
@@ -13,7 +12,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running application tests'
-                sh 'pytest'
+                sh '''
+                    cd app
+                    pytest
+                '''
             }
         }
 
