@@ -9,6 +9,16 @@ pipeline {
             }
         }
 
+        stage('Install Dependencies') {
+            steps {
+                echo 'Installing application dependencies'
+                sh '''
+                    cd app
+                    python3 -m pip install --break-system-packages -r requirements.txt
+                '''
+            }
+        }
+
         stage('Test') {
             steps {
                 echo 'Running application tests'
